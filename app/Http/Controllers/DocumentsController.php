@@ -8,7 +8,7 @@ class DocumentsController
 {
     public function index()
     {
-        $documents = Document::all();
+        $documents = Document::byAge()->get();
         return view('documents/index', ['documents' => $documents]);
     }
 }

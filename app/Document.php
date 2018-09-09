@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 class Document extends Model
@@ -11,4 +12,9 @@ class Document extends Model
         'files' => 'array',
         'tags' => 'array',
     ];
+
+    public function scopeByAge(Builder $query) : Builder
+    {
+        return $query->orderBy('updated_at', 'desc');
+    }
 }
